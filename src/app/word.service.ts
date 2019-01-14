@@ -72,7 +72,7 @@ export class WordService {
 
 //fetch to api based on user inputs, and oass returned object to function
   getWord(word) {
-    return  this.http.get(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {headers: { "X-RapidAPI-Key": <API KEY> }})
+    return  this.http.get(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {headers: { "X-RapidAPI-Key": }})
       .subscribe(wordRes => {this.changeWordObj(wordRes), console.log(wordRes)});
   }
 
