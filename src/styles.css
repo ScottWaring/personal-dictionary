@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+body h1 {
+  font-family: 'Staatliches', cursive;
+}
+
+body {
+  font-family: 'Thasadith', sans-serif;
+}
+
+
+input {
+  border-radius: 55vh;
+  border-style: none;
+  width: 15vw;
+  height: 3vh;
+  text-align: center;
+}
+
+button {
+  border-radius: 55vh;
+  width: 15vw;
+  height: 3vh;
+  text-align: center;
+}

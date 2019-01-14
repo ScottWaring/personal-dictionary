@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'personal-dictionary';
+  title = 'Your Personal Dictionary';
+
+  onSubmit(event: any) {
+    event.preventDefault()
+    console.log(event.target.search.value)
+  }
 }

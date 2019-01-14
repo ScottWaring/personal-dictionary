@@ -1,0 +1,34 @@
+.display-list {
+  padding:1%;
+  width: 100%;
+  height: 50%;
+  float:left;
+}
+
+.display-list h5 {
+  margin-left: 25%;
+  cursor: pointer;
+}
+
+.display-list h5:hover {
+  text-decoration: underline;
+}
+
+.display-list-results {
+  border-radius: 3px;
+  margin-left: 7%;
+  margin-bottom: 5%;
+  width: 80%;
+  height: 80%;
+  overflow: scroll;
+  background-color:rgba(255, 255, 255,0.2);
+}
+
+.display-list-results li {
+  cursor: pointer;
+  list-style-type:none;
+}
+
+.display-list-results li:hover {
+  text-decoration: underline;
+}

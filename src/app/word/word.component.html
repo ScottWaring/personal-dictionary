@@ -1,0 +1,52 @@
+
+  <div  class="word-div" *ngFor="let word of wordSearch">
+
+      <div class="save-button"><p (click)="changeStatus(word.id)">
+        {{ word.saved !== true ? 'save to your dictonary?' :'remove from your dictionary?'}}
+      </p></div>
+      <div class="render-word-title">
+        <h3>{{word.word | uppercase }}</h3>
+        <p>{{word.partOfSpeech| titlecase }}</p>
+      </div>
+
+      <div class="render-word-details">
+        <p class="word-title">Pronunciation: </p>
+          <p>{{word.pronunciation}}</p>
+      </div>
+
+      <div class="render-word-details">
+        <p class="word-title">Syllables:  </p>
+          <p>{{word.syllables.length === 0? 1 : word.syllables.length}}</p>
+        <p *ngFor="let syl of word.syllables">{{syl}}</p>
+      </div>
+
+      <div class="render-word-details">
+        <p class="word-title">Definition: </p>
+          <p>{{word.definition}}</p>
+      </div>
+
+      <div id="example" class="render-word-details">
+        <p *ngIf="word.examples.length > 0" class="word-title">Examples: </p>
+        <div class="examples-div">
+          <p *ngFor="let exm of word.examples">{{exm}}</p>
+        </div>
+      </div>
+
+      <div class="render-word-details">
+        <p *ngIf="word.synonyms.length > 0" class="word-title">Synonyms: </p>
+          <p class="syn"*ngFor="let syn of word.synonyms" (click)="this.wordService.getWord(syn)">{{syn}}</p>
+      </div>
+
+      <div class="render-word-details">
+        <p *ngIf="word.antonyms.length > 0" class="word-title">Antonyms: </p>
+          <p class="syn"*ngFor="let ant of word.antonyms"(click)="this.wordService.getWord(ant)">{{ant}}</p>
+      </div>
+
+      <div [ngClass]="(word.saved === true)?'render-word-details':'do-not-render'">
+        <p> Define {{word.word}} in your own words</p>
+        <form (ngSubmit)="editDefinition($event, word.id)">
+          <input id="user-def-add"type="textarea" [(ngModel)]="word.userDefinition" name="definition"  value=""/>
+        </form>
+      </div>
+
+  </div>

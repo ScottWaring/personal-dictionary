@@ -1,0 +1,16 @@
+<div class="display-list">
+  <span><h5 (click)="this.showArray('user')">Your Dictonary</h5></span>
+  <div class="display-list-results">
+    <ul>
+      <li *ngFor="let word of userWords" (click)="this.showWord(word)">{{word.word}}</li>
+    </ul>
+  </div>
+</div>
+<div class="display-list">
+  <span><h5 (click)="this.showArray('all')">Recent Searches</h5></span>
+  <div class="display-list-results">
+    <ul>
+      <li *ngFor="let word of allWords" (click)="this.showWord(word)">{{word.word}}</li>
+    </ul>
+  </div>
+</div>
