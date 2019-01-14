@@ -14,10 +14,12 @@ export class DisplayComponent implements OnInit {
 
   constructor(private wordService: WordService) { }
 
+//lifecycle hook that on component initializing calls function
   ngOnInit() {
     this.getWords();
   }
 
+//function called from ngOnInit that sets up subscriptions, allowing component to listen service
   getWords() {
     this.wordService.displayUserWords()
       .subscribe(data => this.userWords = data);
@@ -25,6 +27,7 @@ export class DisplayComponent implements OnInit {
       .subscribe(data => this.allWords = data);
   }
 
+//functions to change data on observable stream that renders in the word component
   showArray(value) {
     return this.wordService.changeDisplay(value);
   }

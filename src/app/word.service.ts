@@ -65,18 +65,17 @@ export class WordService {
     }
     this.allWordsArr.push(wordObj);
     this.wordArr.push(wordObj);
-    console.log(this.wordArr)
   }
 
   constructor(private http: HttpClient) { }
 
 //fetch to api based on user inputs, and oass returned object to function
   getWord(word) {
-    return  this.http.get(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {headers: { "X-RapidAPI-Key": }})
+    return  this.http.get(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {headers: { "X-RapidAPI-Key": API KEY GOES HERE}})
       .subscribe(wordRes => {this.changeWordObj(wordRes), console.log(wordRes)});
   }
 
-//subscribeable function to inject component
+//subscribeable functions to inject component
   wordSearch(): Observable<any[]> {
         return of(this.wordArr);
   }
@@ -97,21 +96,19 @@ export class WordService {
     if (word.saved === true) {
       this.userWordsArr.push(word);
     } else if(word.saved === false) {
-      console.log(this.userWordsArr, 'start');
       let newArr = this.userWordsArr.filter(word => word.id !== id);
       this.userWordsArr.length = 0;
       newArr.map(word => this.userWordsArr.push(word));
-
     }
   }
 
 //find and update user definition
-  editDefinition(val, id) {
+  editDefinition(def, id) {
     let word = this.allWordsArr.find(word => word.id === id);
-    word.userDefinition = val;
+    word.userDefinition = def;
   }
 
-  //set model display value and trigger rerender of word component
+  //functions to set model display value and trigger rerender of word component
   changeDisplay(value) {
     if (value === "user") {
       this.wordArr.length = 0;
