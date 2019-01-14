@@ -3,7 +3,7 @@ This is an Angular app that allows the user to search for words using the WordsA
 
 To use the app you'll need your own api key - you can get it at: https://www.wordsapi.com/
 
-When you have the api key paste it into line 75 of word.service.ts where it says <Api Key>.
+When you have the api key paste it into line 75 of word.service.ts where it says Api Key.
 
 Please let me know if you have any questions. 
 
