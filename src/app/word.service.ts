@@ -71,7 +71,7 @@ export class WordService {
 
 //fetch to api based on user inputs, and pass returned object to function
   getWord(word) {
-    return  this.http.get(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {headers: { "X-RapidAPI-Key": API KEY GOES HERE}})
+    return  this.http.get(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {headers: { "X-RapidAPI-Key": API KEY HERE}})
       .subscribe(wordRes => {this.changeWordObj(wordRes), console.log(wordRes)});
   }
 
@@ -99,6 +99,11 @@ export class WordService {
       let newArr = this.userWordsArr.filter(word => word.id !== id);
       this.userWordsArr.length = 0;
       newArr.map(word => this.userWordsArr.push(word));
+      if (this.wordArr.length > 1) {
+        let newArr = this.wordArr.filter(word => word.id !== id);
+        this.wordArr.length = 0;
+        newArr.map(word => this.wordArr.push(word));
+      }
     }
   }
 
